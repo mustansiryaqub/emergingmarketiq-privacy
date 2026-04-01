@@ -3,121 +3,245 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EmergingMarketIQ — Request Data Deletion</title>
+  <title>EmergingMarketIQ — Data Deletion Request</title>
   <style>
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      max-width: 800px;
+      max-width: 700px;
       margin: 0 auto;
       padding: 40px 24px;
       color: #333;
       line-height: 1.6;
-      background-color: #f9f9f9;
+      background-color: #ffffff;
     }
-    .card {
-      background: #ffffff;
-      border-radius: 12px;
+    .header {
+      background-color: #0A1628;
+      color: #ffffff;
       padding: 32px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      border-radius: 12px;
+      margin-bottom: 32px;
+      text-align: center;
     }
-    h1 { color: #0A1628; margin-bottom: 8px; }
-    h2 { color: #0A1628; margin-top: 32px; }
-    p { margin-bottom: 16px; color: #444; }
-    .highlight {
-      background-color: #f4f8ff;
+    .header h1 {
+      color: #ffffff;
+      margin: 0 0 8px 0;
+      font-size: 24px;
+    }
+    .header p {
+      color: #7FB3D3;
+      margin: 0;
+      font-size: 14px;
+    }
+    .badge {
+      display: inline-block;
+      background-color: rgba(244, 208, 63, 0.15);
+      border: 1px solid rgba(244, 208, 63, 0.4);
+      color: #F4D03F;
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-top: 12px;
+    }
+    h2 {
+      color: #0A1628;
+      margin-top: 32px;
+      font-size: 20px;
+    }
+    p {
+      margin-bottom: 16px;
+      color: #444;
+    }
+    .info-card {
+      background-color: #f8f9fa;
       border-left: 4px solid #0A1628;
-      padding: 16px 20px;
-      border-radius: 4px;
-      margin: 24px 0;
+      border-radius: 0 8px 8px 0;
+      padding: 20px 24px;
+      margin-bottom: 24px;
     }
-    .email-link {
+    .info-card p {
+      margin: 0;
+    }
+    .warning-card {
+      background-color: #fff8e1;
+      border-left: 4px solid #F4D03F;
+      border-radius: 0 8px 8px 0;
+      padding: 20px 24px;
+      margin-bottom: 24px;
+    }
+    .warning-card p {
+      margin: 0;
+      color: #7a6000;
+    }
+    .steps {
+      background-color: #f8f9fa;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .step:last-child {
+      margin-bottom: 0;
+    }
+    .step-number {
+      background-color: #0A1628;
+      color: #ffffff;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .step-content strong {
+      display: block;
+      color: #0A1628;
+      margin-bottom: 4px;
+    }
+    .step-content p {
+      margin: 0;
+      font-size: 14px;
+      color: #666;
+    }
+    .email-button {
       display: inline-block;
       background-color: #0A1628;
       color: #ffffff;
-      padding: 12px 24px;
-      border-radius: 8px;
+      padding: 14px 32px;
       text-decoration: none;
-      font-weight: 600;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 15px;
       margin-top: 8px;
     }
-    .steps {
-      background: #f9f9f9;
-      border-radius: 8px;
-      padding: 20px 24px;
-      margin: 16px 0;
+    .email-button:hover {
+      background-color: #1C2E4A;
     }
-    .steps ol {
+    .data-list {
+      list-style: none;
+      padding: 0;
       margin: 0;
-      padding-left: 20px;
     }
-    .steps li {
-      margin-bottom: 8px;
+    .data-list li {
+      padding: 8px 0;
+      border-bottom: 1px solid #eee;
+      font-size: 14px;
       color: #444;
+    }
+    .data-list li:last-child {
+      border-bottom: none;
+    }
+    .data-list li::before {
+      content: "✓ ";
+      color: #0A1628;
+      font-weight: 700;
+    }
+    footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid #eee;
+      text-align: center;
+      font-size: 13px;
+      color: #999;
+    }
+    footer a {
+      color: #0A1628;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
-  <div class="card">
+
+  <div class="header">
     <h1>EmergingMarketIQ</h1>
-    <p style="color: #666; margin-top: 0;">Data Deletion Request</p>
-
-    <div class="highlight">
-      <strong>Your privacy matters to us.</strong> You can request
-      deletion of your account and all associated data at any time.
-      We will process all deletion requests within 30 days.
-    </div>
-
-    <h2>How to Request Data Deletion</h2>
-
-    <div class="steps">
-      <ol>
-        <li>Send an email to our support team using the button below</li>
-        <li>Include your registered email address in the request</li>
-        <li>We will confirm receipt within 2 business days</li>
-        <li>Your account and all data will be permanently deleted within 30 days</li>
-      </ol>
-    </div>
-
-    <p>
-      Please use the subject line
-      <strong>Data Deletion Request</strong> and include the email
-      address associated with your EmergingMarketIQ account.
-    </p>
-
-    
-      href="mailto:mustansir.yaqub@gmail.com?subject=Data Deletion Request&body=Please delete my EmergingMarketIQ account and all associated data.%0A%0ARegistered email address: "
-      class="email-link"
-    >
-      Request Data Deletion →
-    </a>
-
-    <h2>What Data Will Be Deleted</h2>
-    <p>Upon receiving your request we will permanently delete:</p>
-    <ul>
-      <li>Your account credentials and profile information</li>
-      <li>Your name and email address</li>
-      <li>Your subscription history and preferences</li>
-      <li>Any usage data associated with your account</li>
-    </ul>
-
-    <h2>Timeline</h2>
-    <p>
-      We will process your deletion request within <strong>30 days</strong>
-      of receipt. You will receive a confirmation email once your data
-      has been permanently deleted.
-    </p>
-
-    <h2>Contact</h2>
-    <p>
-      For any questions about data deletion or your privacy rights
-      please contact us at
-      <strong>support@emergingmarketiq.com</strong>
-    </p>
-
-    <p style="margin-top: 32px; font-size: 13px; color: #888;">
-      EmergingMarketIQ · Melbourne, Australia ·
-      <a href="/">Privacy Policy</a>
-    </p>
+    <p>Advanced Regional Intelligence · MEA & APAC</p>
+    <div class="badge">✦ Data Deletion Request</div>
   </div>
+
+  <h2>Request Account & Data Deletion</h2>
+
+  <div class="info-card">
+    <p>You have the right to request deletion of your EmergingMarketIQ account and all associated personal data at any time. We will process all verified deletion requests within <strong>30 days</strong>.</p>
+  </div>
+
+  <h2>What Data Will Be Deleted</h2>
+
+  <div class="steps">
+    <ul class="data-list">
+      <li>Your account email address and display name</li>
+      <li>Your account profile and preferences</li>
+      <li>Your subscription history and status</li>
+      <li>Your app usage and activity data</li>
+      <li>Any saved searches or bookmarks</li>
+      <li>All authentication tokens and sessions</li>
+    </ul>
+  </div>
+
+  <div class="warning-card">
+    <p><strong>Please note:</strong> Once your account is deleted this action cannot be undone. You will lose access to any active premium subscription without a refund for the remaining billing period. If you have an active Google Play subscription please cancel it separately through Google Play before requesting deletion.</p>
+  </div>
+
+  <h2>How to Submit a Deletion Request</h2>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-number">1</div>
+      <div class="step-content">
+        <strong>Send us an email</strong>
+        <p>Use the button below to send a deletion request from the email address associated with your EmergingMarketIQ account.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-number">2</div>
+      <div class="step-content">
+        <strong>We verify your identity</strong>
+        <p>We will send a confirmation email to verify that the request came from the account owner.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-number">3</div>
+      <div class="step-content">
+        <strong>We process the deletion</strong>
+        <p>Once verified we will delete all your data within 30 days and send you a confirmation.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2>Submit Your Request</h2>
+
+  <p>Click the button below to send your data deletion request. Please send from the email address registered to your EmergingMarketIQ account.</p>
+
+  <a href="mailto:mustansir.yaqub@gmail.com?subject=Data%20Deletion%20Request%20-%20EmergingMarketIQ&body=Hello%2C%0A%0AI%20would%20like%20to%20request%20the%20deletion%20of%20my%20EmergingMarketIQ%20account%20and%20all%20associated%20personal%20data.%0A%0ARegistered%20email%20address%3A%20%5BPlease%20enter%20your%20registered%20email%20here%5D%0A%0APlease%20confirm%20once%20the%20deletion%20has%20been%20completed.%0A%0AThank%20you." class="email-button">
+    Request Data Deletion →
+  </a>
+
+  <h2>Processing Timeline</h2>
+
+  <p>We aim to process all deletion requests within <strong>30 days</strong> of receiving your verified request. You will receive a confirmation email once the deletion is complete.</p>
+
+  <p>For urgent requests or any questions about your data please contact us at <a href="mailto:mustansir.yaqub@gmail.com">mustansir.yaqub@gmail.com</a></p>
+
+  <footer>
+    <p><a href="index.html">← Back to Privacy Policy</a></p>
+    <p style="margin-top: 12px;">EmergingMarketIQ · Melbourne, Australia</p>
+  </footer>
+
 </body>
 </html>
+```
+
+Click **Commit new file**.
+
+---
+
+**THE URL FOR THIS PAGE WILL BE:**
+```
+https://mustansiryaqub.github.io/emergingmarketiq-privacy/delete.html
